@@ -1,7 +1,5 @@
 package com.lurker.kaikeba.proxy.advise;
 
-import com.lurker.kaikeba.proxy.target.BaseService;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
