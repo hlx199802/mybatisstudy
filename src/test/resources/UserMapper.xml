@@ -2,6 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lurker.kaikeba.example.bean.User">
+    
+    <resultMap id="userResultMap" type="com.lurker.kaikeba.example.bean.User">
+        <id property="userId" column="user_id"/>
+        <result property="userNo" column="user_no"/>
+        <result property="userName" column="user_name"/>
+        <result property="userAddr" column="user_addr"/>
+    </resultMap>
 
     <insert id="insertUser1">
         insert into lurker_user(user_no, user_name, user_addr) values(1, '测试1', '测试地址1')
@@ -11,11 +18,11 @@
         insert into lurker_user(user_no, user_name, user_addr) values(#{userNo}, #{userName}, #{userAddr})
     </insert>
     
-    <select id="selectUser1" resultType="com.lurker.kaikeba.example.bean.User">
+    <select id="selectUser1" resultMap="userResultMap">
         select * from lurker_user where user_no = 2;
     </select>
 
-    <select id="selectUser2" parameterType="int" resultType="com.lurker.kaikeba.example.bean.User">
+    <select id="selectUser2" parameterType="int" resultMap="userResultMap">
         select * from lurker_user where user_no = #{value};
     </select>
 
