@@ -31,7 +31,7 @@ public class UserTest extends BaseTest {
 
     @Test
     public void testSelect2() {
-        User user = sqlSession.selectOne("selectUser2", 4);
+        User user = sqlSession.selectOne("selectUser2", 2);
         System.out.println(JSON.toJSONString(user));
     }
 

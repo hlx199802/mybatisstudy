@@ -12,11 +12,11 @@
     </insert>
     
     <select id="selectUser1" resultType="com.lurker.kaikeba.example.bean.User">
-        select * from lurker_user where user_id = 4;
+        select * from lurker_user where user_no = 2;
     </select>
 
     <select id="selectUser2" parameterType="int" resultType="com.lurker.kaikeba.example.bean.User">
-        select * from lurker_user where user_id = #{value};
+        select * from lurker_user where user_no = #{value};
     </select>
 
     <update id="updateUser1" parameterType="com.lurker.kaikeba.example.bean.User">
