@@ -1,5 +1,6 @@
-package com.lurker.kaikeba.beans;
+package com.lurker.kaikeba.example;
 
+import com.lurker.kaikeba.example.bean.Dept;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

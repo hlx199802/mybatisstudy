@@ -1,4 +1,4 @@
-package com.lurker.kaikeba.beans;
+package com.lurker.kaikeba.example.bean;
 
 public class Dept {
 

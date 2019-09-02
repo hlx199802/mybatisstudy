@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lurker.kaikeba.example.bean.User">
+
+    <insert id="insertUser1">
+        insert into lurker_user(user_no, user_name, user_addr) values(1, '测试1', '测试地址1')
+    </insert>
+    
+    <insert id="insertUser2" parameterType="com.lurker.kaikeba.example.bean.User">
+        insert into lurker_user(user_no, user_name, user_addr) values(#{userNo}, #{userName}, #{userAddr})
+    </insert>
+    
+    <select id="selectUser1" resultType="com.lurker.kaikeba.example.bean.User">
+        select * from lurker_user where user_id = 4;
+    </select>
+
+    <select id="selectUser2" parameterType="int" resultType="com.lurker.kaikeba.example.bean.User">
+        select * from lurker_user where user_id = #{value};
+    </select>
+
+    <update id="updateUser1" parameterType="com.lurker.kaikeba.example.bean.User">
+        update lurker_user set user_name = #{value} where user_no = 2;
+    </update>
+
+    <delete id="deleteUser1">
+        delete from lurker_user where user_no = 1;
+    </delete>
+    
+</mapper>
