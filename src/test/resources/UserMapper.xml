@@ -17,6 +17,13 @@
     <insert id="insertUser2" parameterType="com.lurker.kaikeba.example.bean.User">
         insert into lurker_user(user_no, user_name, user_addr) values(#{userNo}, #{userName}, #{userAddr})
     </insert>
+
+    <insert id="insertUser3" parameterType="com.lurker.kaikeba.example.bean.User">
+        <selectKey keyProperty="userId" resultType="long" keyColumn="user_id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into lurker_user(user_no, user_name, user_addr) values(#{userNo}, #{userName}, #{userAddr})
+    </insert>
     
     <select id="selectUser1" resultMap="userResultMap">
         select * from lurker_user where user_no = 2;

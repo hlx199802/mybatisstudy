@@ -24,6 +24,17 @@ public class UserTest extends BaseTest {
     }
 
     @Test
+    public void testInsert3() {
+        User user = new User();
+        user.setUserNo(4l);
+        user.setUserName("测试4");
+        user.setUserAddr("测试地址4");
+        int row = sqlSession.insert("insertUser3", user);
+        sqlSession.commit();
+        System.out.println("===============成功插入数据，" + row + ", id为" + user.getUserId());
+    }
+
+    @Test
     public void testSelect1() {
         User user = sqlSession.selectOne("selectUser1");
         System.out.println(JSON.toJSONString(user));
