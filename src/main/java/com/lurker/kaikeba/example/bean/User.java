@@ -6,6 +6,7 @@ public class User {
     private Long userNo;
     private String userName;
     private String userAddr;
+    private Department department;
 
     public Long getUserId() {
         return userId;
@@ -37,5 +38,13 @@ public class User {
 
     public void setUserAddr(String userAddr) {
         this.userAddr = userAddr;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
