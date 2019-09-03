@@ -23,6 +23,9 @@ public class UserTest extends BaseTest {
         sqlSession.commit();
     }
 
+    /**
+     * 先插入数据，再获取主键；适用于自增主键
+     */
     @Test
     public void testInsert3() {
         User user = new User();
@@ -30,6 +33,20 @@ public class UserTest extends BaseTest {
         user.setUserName("测试4");
         user.setUserAddr("测试地址4");
         int row = sqlSession.insert("insertUser3", user);
+        sqlSession.commit();
+        System.out.println("===============成功插入数据，" + row + ", id为" + user.getUserId());
+    }
+
+    /**
+     * 先获取主键，再进行插入；适用于非自增主键
+     */
+    @Test
+    public void testInsert4() {
+        User user = new User();
+        user.setUserNo(4l);
+        user.setUserName("测试4");
+        user.setUserAddr("测试地址4");
+        int row = sqlSession.insert("insertUser4", user);
         sqlSession.commit();
         System.out.println("===============成功插入数据，" + row + ", id为" + user.getUserId());
     }
