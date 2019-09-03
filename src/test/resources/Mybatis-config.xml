@@ -13,6 +13,10 @@
     <!-- 给parameterType或resultType中的类型取别名，省取写全限定名的麻烦 -->
     <typeAliases>
         <typeAlias type="com.lurker.kaikeba.example.bean.User" alias="User"></typeAlias>
+        <!--
+        批量定义别名，别名默认为类名
+        <package name=""></package>
+        -->
     </typeAliases>
     <environments default="dev">
         <environment id="dev">
