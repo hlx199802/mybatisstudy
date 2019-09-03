@@ -3,18 +3,25 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties resource="db.properties">
+        <property name="jdbc.username" value="yaojiang"/>
+    </properties>
     <settings>
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING" />
     </settings>
+    <!-- 给parameterType或resultType中的类型取别名，省取写全限定名的麻烦 -->
+    <typeAliases>
+        <typeAlias type="com.lurker.kaikeba.example.bean.User" alias="User"></typeAlias>
+    </typeAliases>
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/kaikeba?characterEncoding=utf8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="Yj940907.."/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
